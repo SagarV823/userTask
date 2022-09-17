@@ -1,0 +1,59 @@
+<div class="container">
+    <div *ngIf="user.first_name; else elseblock " class="card text-center card-pos">
+        <div class="card-header">
+            <h5>Edit user details!</h5>
+        </div>
+        <div class="card-body">
+            <h3 *ngIf="saved" style="color:green;">User details saved!</h3>
+            <div class="row item">
+                <div class="col-12">
+                    <img [src]="user.avatar" class="img-reponsive img-rounded" />
+                </div>
+            </div>
+            <form [formGroup]="editForm">
+                <div class="row" class="formGroup">
+                    <div class="col-12">
+                        <label>First name</label>
+                        <input type="text" class="form-control" formControlName="first_name" placeholder="First name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Last name</label>
+                        <input type="text" class="form-control" formControlName="last_name" placeholder="Last name">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Email</label>
+                        <input type="email" class="form-control" formControlName="email"
+                            placeholder="Ex. pat@example.com">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Job</label>
+                        <input type="text" class="form-control" formControlName="job" placeholder="Ex. pat@example.com">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12">
+                        <button [disabled]="editForm.invalid" class="btn btn-primary" (click)="onSubmit()"
+                            type="submit">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            Contact us at xyzsupport@abc.com
+        </div>
+    </div>
+    <ng-template #elseblock>
+        <h2>To edit user details, please click on Edit button </h2>
+    </ng-template>
+</div>
